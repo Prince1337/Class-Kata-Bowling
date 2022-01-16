@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GameTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-01-15T12:09:58" hostname="DESKTOP-6IECT8M" time="0.031">
+<testsuite name="GameTest" tests="3" skipped="0" failures="1" errors="0" timestamp="2022-01-16T13:27:29" hostname="DESKTOP-6IECT8M" time="0.027">
   <properties/>
-  <testcase name="addFirstRoll()" classname="GameTest" time="0.031">
+  <testcase name="addThirdRoll()" classname="GameTest" time="0.02">
     <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
-	at GameTest.addFirstRoll(GameTest.java:20)
+	at GameTest.addThirdRoll(GameTest.java:53)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -96,6 +96,8 @@
 	at java.base/java.lang.Thread.run(Thread.java:830)
 </failure>
   </testcase>
+  <testcase name="addFirstRoll()" classname="GameTest" time="0.005"/>
+  <testcase name="addSecondRoll()" classname="GameTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
