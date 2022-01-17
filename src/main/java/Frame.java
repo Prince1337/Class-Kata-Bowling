@@ -1,11 +1,14 @@
+import java.util.Arrays;
 
 public class Frame {
 
   private int[] pinsRolled;
   private int score; // Punktzahl nur dieses Frame
+  private int capacity;
 
-  public Frame() {
-    pinsRolled = new int[3];
+  public Frame(int capacity) {
+    this.capacity = capacity;
+    pinsRolled = new int[capacity];
     score = 0;
   }
 
@@ -13,15 +16,17 @@ public class Frame {
     return pinsRolled;
   }
 
+  public void addPin(int pin, int rollsCount){
+    pinsRolled[rollsCount] = pin;
+    score += pin;
+  }
+
   public int getScore() {
-    for (int i: pinsRolled) {
-      score += i;
-    }
     return score;
   }
 
   @Override
   public String toString() {
-    return "(" + pinsRolled + "," + score + ")";
+    return "(" + Arrays.toString(pinsRolled) + "," + score + ")";
   }
 }

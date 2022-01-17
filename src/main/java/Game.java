@@ -1,18 +1,28 @@
 
 public class Game {
 
-  private Frame[] frames = new Frame[10];
+  private final Frame[] frames = new Frame[10];
   private int currentFrame = 0;
   private int rollCount;
 
   public void addRoll(int pins){
+    int capacity = 2;
+
+    if(rollCount == capacity)
+      currentFrame++;
+
     if(frames[currentFrame] == null) {
-      frames[currentFrame] = new Frame();
+      frames[currentFrame] = new Frame(capacity);
       rollCount = 0;
     }
 
-    frames[currentFrame].getPinsRolled()[rollCount] = pins;
-    rollCount++;
+
+
+    if(pins < 10){
+      frames[currentFrame].addPin(pins, rollCount);
+      rollCount++;
+    }
+
     if(pins == 10){
       currentFrame++;
     }
@@ -23,7 +33,12 @@ public class Game {
   }
 
   public int totalScore() {
-    return 0;
+    int totalScore = 0;
+    for (Frame frame : frames){
+      if(frame != null)
+        totalScore += frame.getScore();
+    }
+    return totalScore;
   }
 
   public boolean over() {
