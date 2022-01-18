@@ -1,7 +1,7 @@
 
 public class Game {
 
-  private final Frame[] frames = new Frame[10];
+  private final Frame[] game = new Frame[10];
   private int currentFrame = 0;
   private int rollCount;
 
@@ -11,15 +11,15 @@ public class Game {
     if(rollCount == capacity)
       currentFrame++;
 
-    if(frames[currentFrame] == null) {
-      frames[currentFrame] = new Frame(capacity);
+    if(game[currentFrame] == null) {
+      game[currentFrame] = new Frame(capacity);
       rollCount = 0;
     }
 
 
 
     if(pins < 10){
-      frames[currentFrame].addPin(pins, rollCount);
+      game[currentFrame].addPin(pins, rollCount);
       rollCount++;
     }
 
@@ -29,12 +29,12 @@ public class Game {
   }
 
   public Frame[] frames(){
-    return frames;
+    return game;
   }
 
   public int totalScore() {
     int totalScore = 0;
-    for (Frame frame : frames){
+    for (Frame frame : game){
       if(frame != null)
         totalScore += frame.getScore();
     }

@@ -16,8 +16,8 @@ public class Frame {
     return pinsRolled;
   }
 
-  public void addPin(int pin, int rollsCount){
-    pinsRolled[rollsCount] = pin;
+  public void addPin(int pin, int rollCount){
+    pinsRolled[rollCount] = pin;
     score += pin;
   }
 
