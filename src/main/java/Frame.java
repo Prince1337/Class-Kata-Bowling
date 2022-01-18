@@ -2,13 +2,13 @@ import java.util.Arrays;
 
 public class Frame {
 
-  private int[] pinsRolled;
+  private final int[] pinsRolled;
   private int score; // Punktzahl nur dieses Frame
   private int capacity;
 
   public Frame(int capacity) {
     this.capacity = capacity;
-    pinsRolled = new int[capacity];
+    pinsRolled = new int[this.capacity];
     score = 0;
   }
 
@@ -23,6 +23,10 @@ public class Frame {
 
   public int getScore() {
     return score;
+  }
+
+  public void addBonus (int bonus){
+    this.score += bonus;
   }
 
   @Override
