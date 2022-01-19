@@ -31,10 +31,10 @@ Das Interface der Klasse soll wie folgt aussehen:
 	- bool Over() {...}
 # }
 
-class Frame {
+# class Frame {
 	int[] PinsRolled;
 	int Score; // Punktzahl nur dieses Frame
-}
+# }
 AddRoll() wirft eine Exception, falls nach Spielende noch Würfe registriert werden sollen.
 
 
