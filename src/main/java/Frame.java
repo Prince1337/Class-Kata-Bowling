@@ -33,4 +33,21 @@ public class Frame {
   public String toString() {
     return "(" + Arrays.toString(pinsRolled) + "," + score + ")";
   }
+
+  public boolean fullScore(){
+    return score == 10;
+  }
+
+  public boolean fullScoreLastFrame(){
+    return score >= 10;
+  }
+
+  public boolean rollIsZero(int roll){
+    return pinsRolled[roll] == 0;
+  }
+
+  public boolean bonusRoll(){
+    return pinsRolled.length == 3;
+  }
+
 }
