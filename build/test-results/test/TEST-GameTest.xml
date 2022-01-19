@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GameTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2022-01-19T18:03:29" hostname="DESKTOP-6IECT8M" time="0.057">
+<testsuite name="GameTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-01-19T22:10:46" hostname="DESKTOP-6IECT8M" time="0.041">
   <properties/>
-  <testcase name="addEleventhRoll()" classname="GameTest" time="0.027"/>
-  <testcase name="addFithRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addTenthRoll()" classname="GameTest" time="0.001"/>
-  <testcase name="addEighteenthRoll()" classname="GameTest" time="0.001"/>
-  <testcase name="addSixthRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addSixteenthRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addNinthRoll()" classname="GameTest" time="0.009"/>
-  <testcase name="addThirdRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addThirteenthRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addFirstRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addSeventeenthRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addSecondRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addFifteenthRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addSeventhRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addEighthRoll()" classname="GameTest" time="0.001"/>
-  <testcase name="addNinteenthRoll()" classname="GameTest" time="0.002"/>
-  <testcase name="addTwelfthRoll()" classname="GameTest" time="0.001"/>
-  <testcase name="addFourthRoll()" classname="GameTest" time="0.0"/>
-  <testcase name="addFourteenthRoll()" classname="GameTest" time="0.0"/>
-  <system-out><![CDATA[[([1, 4],5), ([4, 5],9), ([6, 4],15), ([5, 5],20), ([10, 0],10), null, null, null, null, null]
-[([1, 4],5), ([4, 5],9), ([6, 4],15), ([5, 5],20), ([10, 0],11), ([0, 1],1), ([7, 3],16), ([6, 4],20), ([10, 0],20), ([2, 8, 6],16)]
+  <testcase name="testStrikeBonus()" classname="GameTest" time="0.023"/>
+  <testcase name="testStrikeFrame()" classname="GameTest" time="0.002"/>
+  <testcase name="testSpareBonus()" classname="GameTest" time="0.001"/>
+  <testcase name="testPinsAreCorrect()" classname="GameTest" time="0.001"/>
+  <testcase name="fullGame()" classname="GameTest" time="0.011"/>
+  <system-out><![CDATA[[([1, 4],5), ([4, 5],9), ([6, 4],15), ([5, 5],20), ([10, 0],11), ([0, 1],1), ([7, 3],16), ([6, 4],20), ([10, 0],20), ([2, 8, 6],16)]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
