@@ -16,7 +16,7 @@ class GameTest {
   }
 
   @Test
-  void testPinsAreCorrect(){
+  void testPinsAreCorrect() throws GameOverException {
 
     game.addRoll(1);
     game.addRoll(9);
@@ -33,7 +33,7 @@ class GameTest {
   }
 
   @Test
-  void testSpareBonus(){
+  void testSpareBonus() throws GameOverException {
 
     game.addRoll(1);
     game.addRoll(9);
@@ -50,7 +50,7 @@ class GameTest {
   }
 
   @Test
-  void testStrikeBonus(){
+  void testStrikeBonus() throws GameOverException {
 
     game.addRoll(10);
     game.addRoll(2);
@@ -66,7 +66,7 @@ class GameTest {
   }
 
   @Test
-  void testStrikeFrame(){
+  void testStrikeFrame() throws GameOverException {
 
     game.addRoll(10);
     game.addRoll(2);
@@ -80,7 +80,7 @@ class GameTest {
   }
 
   @Test
-  void fullGame(){
+  void fullGame() throws GameOverException {
     game = new Game();
 
     game.addRoll(1);

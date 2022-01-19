@@ -6,16 +6,20 @@ public class Game {
   private int currentFrame = 0;
   private int rollCount;
 
-  public void addRoll(int pins){
+  public void addRoll(int pins) throws GameOverException {
+    if(!over()) {
 
-    checkIfReachedMaximumRollsPerFrame();
-    checkIfCurrentFrameIsNull();
+      checkIfReachedMaximumRollsPerFrame();
+      checkIfCurrentFrameIsNull();
 
-    spareHandler(checkForSpare(), scoreBoard, currentFrame, pins);
-    strikeHandler(checkForStrike(), scoreBoard, currentFrame, pins);
-    insertScore(pins);
+      spareHandler(checkForSpare(), scoreBoard, currentFrame, pins);
+      strikeHandler(checkForStrike(), scoreBoard, currentFrame, pins);
+      insertScore(pins);
 
-    checkForPossibleThirdRoll(pins);
+      checkForPossibleThirdRoll(pins);
+    } else {
+      throw new GameOverException("Game is already finished.");
+    }
   }
 
   public int totalScore() {
@@ -25,6 +29,10 @@ public class Game {
         totalScore += frame.getScore();
     }
     return totalScore;
+  }
+
+  public Frame[] frames(){
+    return scoreBoard;
   }
 
   public boolean over() {
@@ -94,10 +102,6 @@ public class Game {
       return previousFrame.fullScore() && !previousFrame.rollIsZero(0) && !previousFrame.rollIsZero(1);
     }
     return false;
-  }
-
-  public Frame[] frames(){
-    return scoreBoard;
   }
 
 }
