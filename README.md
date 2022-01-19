@@ -24,12 +24,12 @@ Jeder Rahmen zeigt den ersten und zweiten und beim letzten sogar den dritten Wur
 
 Das Interface der Klasse soll wie folgt aussehen:
 
-class Game {
-	void AddRoll(int pins) {...}
-	Frame[] Frames() {...}
-	int TotalScore() {...}
-	bool Over() {...}
-}
+# class Game {
+	- void AddRoll(int pins) {...}
+	- Frame[] Frames() {...}
+	- int TotalScore() {...}
+	- bool Over() {...}
+# }
 
 class Frame {
 	int[] PinsRolled;
@@ -37,5 +37,5 @@ class Frame {
 }
 AddRoll() wirft eine Exception, falls nach Spielende noch Würfe registriert werden sollen.
 
-Das Spiel aus der obigen Abbildung mit Game durchgeführt:
+
 
