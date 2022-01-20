@@ -1,7 +1,7 @@
 
 public class Game {
 
-  private final Frame[] scoreBoard = new Frame[10];
+  private final IFrame[] scoreBoard = new IFrame[10];
   private static final int DEFAULT_MAXIMUM_ROLLS = 2;
   private int currentFrame = 0;
   private int rollCount;
@@ -24,20 +24,20 @@ public class Game {
 
   public int totalScore() {
     int totalScore = 0;
-    for (Frame frame : scoreBoard){
-      if(frame != null)
-        totalScore += frame.getScore();
+    for (IFrame IFrame : scoreBoard){
+      if(IFrame != null)
+        totalScore += IFrame.getScore();
     }
     return totalScore;
   }
 
-  public Frame[] frames(){
+  public IFrame[] frames(){
     return scoreBoard;
   }
 
   public boolean over() {
     return (currentFrame == 9 && rollCount == DEFAULT_MAXIMUM_ROLLS && scoreBoard[currentFrame].getPinsRolled().length == DEFAULT_MAXIMUM_ROLLS) ||
-        (currentFrame == 9 && rollCount == 3 && scoreBoard[currentFrame].bonusRoll());
+        (currentFrame == 9 && rollCount == 3 && scoreBoard[currentFrame].isBonusRoll());
   }
 
   private void checkForPossibleThirdRoll(int pins) {
@@ -47,32 +47,32 @@ public class Game {
       int secondRoll = scoreBoard[currentFrame].getPinsRolled()[1];
 
       scoreBoard[currentFrame] = new Frame(newMaximumRolls);
-      scoreBoard[currentFrame].addPin(firstRoll, 0);
-      scoreBoard[currentFrame].addPin(secondRoll, 1);
+      scoreBoard[currentFrame].addPinToScore(firstRoll, 0);
+      scoreBoard[currentFrame].addPinToScore(secondRoll, 1);
     }
   }
 
   private void insertScore(int pins) {
     if(pins < 10){
-      scoreBoard[currentFrame].addPin(pins, rollCount);
+      scoreBoard[currentFrame].addPinToScore(pins, rollCount);
       rollCount++;
     }
 
     if(pins == 10){
-      scoreBoard[currentFrame].addPin(pins, rollCount);
+      scoreBoard[currentFrame].addPinToScore(pins, rollCount);
       currentFrame++;
     }
   }
 
-  private void spareHandler(boolean checkForBonus, Frame[] game, int currentFrame, int pins) {
+  private void spareHandler(boolean checkForBonus, IFrame[] game, int currentFrame, int pins) {
     if(checkForBonus){
-      game[currentFrame - 1].addBonus(pins);
+      game[currentFrame - 1].addBonusToScore(pins);
     }
   }
 
-  private void strikeHandler(boolean checkForBonus, Frame[] game, int currentFrame, int pins) {
+  private void strikeHandler(boolean checkForBonus, IFrame[] game, int currentFrame, int pins) {
     if(checkForBonus){
-      game[currentFrame - 1].addBonus(pins);
+      game[currentFrame - 1].addBonusToScore(pins);
     }
   }
 
@@ -90,16 +90,16 @@ public class Game {
 
   private boolean checkForStrike() {
     if(currentFrame != 0) {
-      Frame previousFrame = scoreBoard[currentFrame - 1];
-      return previousFrame.fullScoreLastFrame() && rollCount < 2 && (previousFrame.rollIsZero(0) || previousFrame.rollIsZero(1));
+      IFrame previousIFrame = scoreBoard[currentFrame - 1];
+      return previousIFrame.isFullScoreLastFrame() && rollCount < 2 && (previousIFrame.rollIsZero(0) || previousIFrame.rollIsZero(1));
     }
     return false;
   }
 
   private boolean checkForSpare() {
     if(currentFrame != 0) {
-      Frame previousFrame = scoreBoard[currentFrame - 1];
-      return previousFrame.fullScore() && !previousFrame.rollIsZero(0) && !previousFrame.rollIsZero(1);
+      IFrame previousIFrame = scoreBoard[currentFrame - 1];
+      return previousIFrame.isFullScore() && !previousIFrame.rollIsZero(0) && !previousIFrame.rollIsZero(1);
     }
     return false;
   }

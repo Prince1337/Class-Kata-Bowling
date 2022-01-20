@@ -1,31 +1,33 @@
 import java.util.Arrays;
 
-public class Frame {
+public class Frame implements IFrame {
 
   private final int[] pinsRolled;
   private int score; // Punktzahl nur dieses Frame
-  private int capacity;
 
   public Frame(int capacity) {
-    this.capacity = capacity;
-    pinsRolled = new int[this.capacity];
+    pinsRolled = new int[capacity];
     score = 0;
   }
 
+  @Override
   public int[] getPinsRolled() {
     return pinsRolled;
   }
 
-  public void addPin(int pin, int rollCount){
+  @Override
+  public void addPinToScore(int pin, int rollCount){
     pinsRolled[rollCount] = pin;
     score += pin;
   }
 
+  @Override
   public int getScore() {
     return score;
   }
 
-  public void addBonus (int bonus){
+  @Override
+  public void addBonusToScore(int bonus){
     this.score += bonus;
   }
 
@@ -34,19 +36,23 @@ public class Frame {
     return "(" + Arrays.toString(pinsRolled) + "," + score + ")";
   }
 
-  public boolean fullScore(){
+  @Override
+  public boolean isFullScore(){
     return score == 10;
   }
 
-  public boolean fullScoreLastFrame(){
+  @Override
+  public boolean isFullScoreLastFrame(){
     return score >= 10;
   }
 
+  @Override
   public boolean rollIsZero(int roll){
     return pinsRolled[roll] == 0;
   }
 
-  public boolean bonusRoll(){
+  @Override
+  public boolean isBonusRoll(){
     return pinsRolled.length == 3;
   }
 

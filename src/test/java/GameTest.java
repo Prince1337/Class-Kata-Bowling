@@ -22,14 +22,14 @@ class GameTest {
     game.addRoll(9);
     game.addRoll(2);
     game.addRoll(2);
-    Frame firstFrame = game.frames()[0];
-    Frame secondFrame = game.frames()[1];
+    IFrame firstIFrame = game.frames()[0];
+    IFrame secondIFrame = game.frames()[1];
 
     int[] expectedFrameFirstFrame = new int[]{1, 9};
     int[] expectedFrameSecondFrame = new int[]{2, 2};
 
-    assertArrayEquals(expectedFrameFirstFrame, firstFrame.getPinsRolled());
-    assertArrayEquals(expectedFrameSecondFrame, secondFrame.getPinsRolled());
+    assertArrayEquals(expectedFrameFirstFrame, firstIFrame.getPinsRolled());
+    assertArrayEquals(expectedFrameSecondFrame, secondIFrame.getPinsRolled());
   }
 
   @Test
@@ -40,10 +40,10 @@ class GameTest {
     game.addRoll(2);
     game.addRoll(2);
 
-    Frame firstFrame = game.frames()[0];
+    IFrame firstIFrame = game.frames()[0];
 
     int expectedPointsFirstFrame = 12;
-    int actual = firstFrame.getScore();
+    int actual = firstIFrame.getScore();
 
     assertEquals(expectedPointsFirstFrame, actual);
 
@@ -56,10 +56,10 @@ class GameTest {
     game.addRoll(2);
     game.addRoll(2);
 
-    Frame firstFrame = game.frames()[0];
+    IFrame firstIFrame = game.frames()[0];
 
     int expectedPointsFirstFrame = 14;
-    int actual = firstFrame.getScore();
+    int actual = firstIFrame.getScore();
 
     assertEquals(expectedPointsFirstFrame, actual);
 
@@ -72,10 +72,10 @@ class GameTest {
     game.addRoll(2);
     game.addRoll(2);
 
-    Frame firstFrame = game.frames()[0];
+    IFrame firstIFrame = game.frames()[0];
     int[] expectedFrame = new int[]{10, 0};
 
-    assertArrayEquals(expectedFrame, firstFrame.getPinsRolled());
+    assertArrayEquals(expectedFrame, firstIFrame.getPinsRolled());
 
   }
 
